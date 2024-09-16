@@ -19,7 +19,7 @@ export default function Home() {
     <div>
       {/* text section */}
       <main className="flex flex-col items-center justify-center h-[50vh] p-8">
-        <div className="absolute -z-10 w-full h-1/2">
+        <div className="absolute -z-10 w-full h-1/2 py-2">
           <Image
             className="w-full bg-size:cover h-72"
             alt="Background image"
