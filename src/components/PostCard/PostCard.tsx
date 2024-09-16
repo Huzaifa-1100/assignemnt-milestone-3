@@ -9,14 +9,14 @@ interface PropsType {
   };
 }
 export const PostCard = (props: PropsType) => {
-  console.log(props);
+
 
   const { postData } = props;
 
   return (
     <div>
-      <div className="flex">
-        <div className="max-w-sm rounded shadow-lg shadow-gray-700 bg-white m-4 hover:mt-2">
+      <div className="flex h-full w-full justify-center">
+        <div className="max-w-sm rounded shadow-lg shadow-gray-700 bg-white m-4 hover:shadow-xl hover:shadow-gray-700 transition-all duration-500 hover:-translate-y-2">
           {/* Post Image */}
           <div>
             <Avatar src={`https://i.pravatar.cc/150?u=${postData.id}`} />

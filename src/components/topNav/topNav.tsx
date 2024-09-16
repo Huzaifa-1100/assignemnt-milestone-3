@@ -1,6 +1,8 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import logo1 from "./../../../public/logo1.png";
 
 const TopNav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +12,14 @@ const TopNav: React.FC = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="bg-gray-800 p-3">
+      <div className="container mx-auto flex justify-between items-center ">
         {/* Logo */}
-        <div className="flex-shrink-0">
-          <Link href="/" className="text-white text-xl font-bold">
-            LOGO
+        <div className="flex-shrink-0 ">
+          <Link href="/">
+            <div className=" rounded-full h-14 w-14 mx-4 ">
+              <Image src={logo1} alt="logo" width={500} height={500} />
+            </div>
           </Link>
         </div>
 
@@ -76,10 +80,7 @@ const TopNav: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link
-              href="/Blog"
-              className="block text-gray-300 hover:text-white"
-            >
+            <Link href="/Blog" className="block text-gray-300 hover:text-white">
               Blog
             </Link>
           </li>

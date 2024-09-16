@@ -1,5 +1,6 @@
 "use client";
 import Comments from "@/components/Comments";
+import { Avatar } from "@nextui-org/avatar";
 import React, { useEffect, useState } from "react";
 
 // interface for post
@@ -11,8 +12,6 @@ interface Post {
 }
 
 export default function BlogId({ params }: { params: { blogId: string } }) {
-
-
   const [postData, setPostData] = useState<Post | null>(null);
 
   const [comments, setComments] = useState([]);
@@ -36,18 +35,29 @@ export default function BlogId({ params }: { params: { blogId: string } }) {
     }
   };
   return (
-    <div>
-      {/* Post Content */}
-      <div className="px-6 py-4">
-        {/* Post Title */}
-        <div className="font-bold text-xl mb-2">{(postData || {}).title}</div>
-        {/* Post Body */}
-        <p className=" text-base">{(postData || {}).body}</p>
-
+    <div className="bg-gray-200">
+      <div className="p-2 lg:px-40 py-4">
+        {/* Post Image */}
+        <div>
+          <Avatar
+            src={`https://i.pravatar.cc/150?u=${(postData || {}).id}`}
+            className="w-full h-80 place-content-center "
+          />
+        </div>
+        {/* Post Content */}
+        <div className="text-center md:mx-32 p-2">
+          {/* Post Title */}
+          <div className="font-bold text-4xl mb-2">
+            {(postData || {}).title}
+          </div>
+          {/* Post Body */}
+          <p className=" text-base">{(postData || {}).body}</p>
+        </div>
+        <div className="bg-gray-500 text-white font-bold text-2xl p-3 rounded-lg px-6">COMMENTS SECTION</div>
         {/* Comments Section */}
         {comments &&
           comments.map((com, index) => {
-            return <Comments commentData={com} key={index} />;
+            return <Comments commentData={com} key={index}  />;
           })}
       </div>
     </div>
