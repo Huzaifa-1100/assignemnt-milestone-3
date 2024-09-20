@@ -27,9 +27,9 @@ export default function Blog() {
   return (
     <div >
       <main className="flex flex-col items-center justify-center h-[50vh] p-8">
-        <div className="absolute -z-10 w-full h-1/2">
+        <div className="absolute -z-10 w-full h-72 ">
           <Image
-            className="w-full bg-size:cover h-72 py-2"
+            className="w-full bg-size:cover h-full bg-red-500"
             alt="Background image"
             src={
               "https://i.pinimg.com/originals/87/2c/ab/872cab564cb7eaf7cb9535da24eb2c6d.gif"
@@ -39,7 +39,7 @@ export default function Blog() {
           />
         </div>
         <h1 className="text-4xl font-bold text-white mb-4">Blog Posts</h1>
-        <p className="text-xl font-bold text-white mb-4">Click on the post to see comments</p>
+        <p className="text-xl font-bold text-white ">Click on the post to see comments</p>
       </main>
 
       {loading && (
@@ -50,7 +50,7 @@ export default function Blog() {
       {error && <div className="mt-4 text-red-500 text-lg">Error: {error}</div>}
 
       {!loading && !error && data && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 py-3 md:grid-cols-3 h-full w-full">
           {data.map((item: PostDataType, index: number) => (
             <Link key={index} href={`/Blog/${item.id}`}>
               <PostCard postData={item} />
